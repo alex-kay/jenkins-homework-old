@@ -4,12 +4,25 @@ pipeline {
         SKIP_COMMIT_MSG = "SKIP_CI"
     }
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
+
+        stage('get_commit_msg') {
+          steps {
+              script {
+                  env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
+              }
+          }
         }
-        stage('run-parallel-branches') {
+
+
+        stage('Build'){
+          when { expression { env.GIT_COMMIT_MSG != env.SKIP_COMMIT_MSG } }
+          steps {
+            echo "Building!"
+          }
+        }
+
+
+        stage('run-parallel') {
           steps {
             parallel(
               a: {
@@ -23,8 +36,8 @@ pipeline {
               }
             )
           }
-          
         }
+
         stage('printenv'){
           steps {
                 sh 'printenv > printenv.txt'
