@@ -16,3 +16,6 @@ Jenkins homework
 ## my actions
 
 1. Create VMs with Jenkins in GCP
+2. Installed necessary plugins, plus GCE plugin
+3. Created a multibranch pipeline, added SCM with Jenkinsfile
+4. Configured GCE plugin to create worker instances based on an image with java installed (otherwise Jenkins didn't want to connect with the nodes)
