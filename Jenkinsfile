@@ -27,14 +27,14 @@ pipeline {
         }
         stage('env'){
           steps {
-                sh 'printenv'
+                sh 'printenv > printenv.txt'
             }
         }
     }
     post { 
         always { 
             echo 'I will always say Hello again!'
-            archiveArtifacts artifacts: '*.txt', followSymlinks: false
+            archiveArtifacts artifacts: '**/*.txt', followSymlinks: false, allowEmptyArchive: true
         }
     }
 }
