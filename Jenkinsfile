@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
 
-        stage('get_commit_msg') {
+        stage('Get commit message') {
           steps {
               script {
                   env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
@@ -21,8 +21,7 @@ pipeline {
           }
         }
 
-
-        stage('run-parallel') {
+        stage('Ping websites') {
           steps {
             parallel(
               a: {
