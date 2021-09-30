@@ -1,4 +1,5 @@
 # jenkins-homework
+
 Jenkins homework
 
 ## Tasks
@@ -21,3 +22,5 @@ Jenkins homework
     ![img1](https://github.com/alex-kay/jenkins-homework/blob/main/img/Screenshot%202021-09-30%20213549.png)
 4. Configured GCE plugin to create worker instances based on an image with java installed (otherwise Jenkins didn't want to connect with the nodes)
     ![img2](https://github.com/alex-kay/jenkins-homework/blob/main/img/Screenshot%202021-09-30%20213739.png)
+5. Added a when condition so "build" stage is skipped when commit message equals to "SKIP_CI"
+   ![img3](https://github.com/alex-kay/jenkins-homework/blob/main/img/Screenshot%202021-09-30%20223739.png)
