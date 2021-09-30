@@ -25,7 +25,7 @@ pipeline {
           }
           
         }
-        stage('env'){
+        stage('printenv'){
           steps {
                 sh 'printenv > printenv.txt'
             }
